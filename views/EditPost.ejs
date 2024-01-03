@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <form action="/editpost/<%= obj._id%>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="">Sujet</label><br>
+        <input type="text" name="sujet" value="<%=obj.sujet%>"><br>
+        <label for="">Sous Titre</label><br>
+        <input type="text" name="sous_titre"value="<%=obj.sous_titre%>"><br>
+        <label for="">Auteur</label><br>
+        <input type="text" name="auteur"value="<%=obj.auteur%>"><br>
+        <label for="">Description</label><br>
+        <textarea name="description" id="" cols="30" rows="3" style="resize:none"><%=obj.description%></textarea><br>
+
+        <input type="submit" value="Modifier">
+    </form>
+</body>
+</html>

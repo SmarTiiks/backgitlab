@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <nav style="display: flex; justify-content: space-around;">
+        <a style="text-decoration: none; color: rgba(32, 178, 171, 0.39); cursor: not-allowed;" href="">Home</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/Blog">Blog</a>
+    </nav>
+
+    <h1>Contacts</h1>
+
+    <h3><a href="/NewContact" style="text-decoration: none; color: lightgoldenrodyellow;">Add new Contact</a></h3>
+    <% dataEjs.forEach((obj)=>{ %>
+        <br>
+        <!-- <p><%= obj._id %></p> -->
+        <a style="text-decoration: none; color: lightgoldenrodyellow;" href="contact/<%= obj._id%>"><%= obj.nom %></a>
+        <p><%= obj.prenom %></p>
+        <p><%= obj.email %></p>
+        <p><%= obj.message %></p>
+        <form action="delete/<%=obj._id%>?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input style="text-decoration: none; color: hsl(0, 80%, 80%); font-weight: bold; border: 0; background-color: transparent;" type="submit" value="Delete">
+        </form>
+        <hr>
+    <% }) %>
+</body>
+</html>

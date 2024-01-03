@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <form action="/edit/<%=obj._id%>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <!-- <input type="text" name="id" value="<%=obj._id%>" hidden> -->
+        <label for="">Nom</label><br>
+        <input type="text" name="nom" value="<%=obj.nom%>"><br>
+        <label for="">Prénom</label><br>
+        <input type="text" name="prenom"value="<%=obj.prenom%>"><br>
+        <label for="">Email</label><br>
+        <input type="email" name="email"value="<%=obj.email%>"><br>
+        <label for="">Message</label><br>
+        <textarea name="message" id="" cols="30" rows="3" style="resize:none"><%=obj.message%></textarea><br>
+
+        <input type="submit" value="Modifier">
+    </form>
+</body>
+</html>

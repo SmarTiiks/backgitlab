@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <nav style="display: flex; justify-content: space-around;">
+        <a style="text-decoration: none; color: lightseagreen;" href="/">Home</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/Blog">Blog</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/NewPost">Nouveau Post</a>
+    </nav>
+    <h1 style="text-align: center;">Blog2</h1>
+    <!-- <h2><a style="text-decoration: none; color: lightblue;" href="blog">Blog</a></h2> -->
+    <!-- <h3><a  href="/NewPost" style="text-decoration: none; color: lightgreen;">New Post</a></h3> -->
+    <hr>
+    <% dataEjs.forEach((obj)=>{ %>
+        <br>
+        <form action="/editpost/<%= obj._id%>?_method=PUT" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="">Sujet</label><br>
+            <input style="background: rgba(255, 255, 255, 0.208); border: none; color: white; border-radius: 5px;" type="text" name="sujet" value="<%=obj.sujet%>"><br>
+            <label for="">Sous Titre</label><br>
+            <input style="background: rgba(255, 255, 255, 0.208); border: none; color: white; border-radius: 5px;" type="text" name="sous_titre"value="<%=obj.sous_titre%>"><br>
+            <label for="">Auteur</label><br>
+            <input style="background: rgba(255, 255, 255, 0.208); border: none; color: white; border-radius: 5px;" type="text" name="auteur"value="<%=obj.auteur%>"><br>
+            <label for="">Description</label><br>
+            <textarea style="background: rgba(255, 255, 255, 0.208); border: none; color: white; border-radius: 5px; resize: none;" name="description" id="" cols="30" rows="3"><%=obj.description%></textarea><br>
+    
+            <input style="background: rgba(255, 255, 255, 0.208); border: none; color: white; border-radius: 5px;" type="submit" value="Modifier">
+        </form>
+        <form action="deletePost/<%=obj._id%>?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input style="text-decoration: none; color: hsl(0, 80%, 80%); font-weight: bold; border: 0; background-color: transparent;" type="submit" value="Delete">
+        </form>
+        <hr>
+    <% }) %>
+</body>
+</html>

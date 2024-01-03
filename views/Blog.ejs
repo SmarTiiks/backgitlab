@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <nav style="display: flex; justify-content: space-around;">
+        <a style="text-decoration: none; color: lightseagreen;" href="/">Home</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/Blog2">Blog 2</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/NewPost">Nouveau Post</a>
+    </nav>
+    <h1 style="text-align: center;">Blog</h1>
+    <!-- <h2><a style="text-decoration: none; color: lightblue;" href="blog2">Blog2</a></h2> -->
+    <!-- <h3><a  href="/NewPost" style="text-decoration: none; color: lightgreen;">New Post</a></h3> -->
+    <hr>
+    <% dataEjs.forEach((obj)=>{ %>
+        <!-- <br> -->
+        <h3><a style="text-decoration: none; color: lightgoldenrodyellow;" href="modifPost/<%= obj._id%>"><%= obj.sujet %></a></h3>
+        <p><%= obj.sous_titre %></p>
+        <p><%= obj.auteur %></p>
+        <p><%= obj.description %></p>
+        <form action="deletePost/<%=obj._id%>?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input style="text-decoration: none; color: hsl(0, 80%, 80%); font-weight: bold; border: 0; background-color: transparent;" type="submit" value="Delete">
+        </form>
+        <hr>
+    <% }) %>
+</body>
+</html>

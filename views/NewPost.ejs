@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: hsl(0, 0%, 20%); color: white;">
+    <nav style="display: flex; justify-content: space-around;">
+        <a style="text-decoration: none; color: lightseagreen;" href="/">Home</a>
+        <a style="text-decoration: none; color: lightseagreen;" href="/Blog">Blog</a>
+        <a style="text-decoration: none; color: rgba(32, 178, 171, 0.39); cursor: not-allowed;" href="">Nouveau Post</a>
+    </nav>
+    <form action="/submit-post" method="post">
+        <label for="">Sujet</label><br>
+        <input type="text" name="sujet"><br>
+        <label for="">Sous Titre</label><br>
+        <input type="text" name="sous_titre"><br>
+        <label for="">Auteur</label><br>
+        <input type="text" name="auteur"><br>
+        <label for="">Description</label><br>
+        <textarea name="description" id="" cols="30" rows="3" style="resize:none"></textarea><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>
