@@ -39,7 +39,7 @@ function doAll(app){
                         httpOnly: true
                     });
                     console.log("cookie created successfully");
-                    res.redirect('http://localhost:3000/');
+                    res.redirect(process.env.FRONTEND_URL + '');
                 } else {
                     return res.status(404).send("Invalid password");
                 }
@@ -58,7 +58,7 @@ function doAll(app){
     // deconnexion
     app.get('/deconnexion', function(req, res){
         res.clearCookie('access-token');
-        res.redirect('http://localhost:3000/');
+        res.redirect(process.env.FRONTEND_URL + '');
     });
 };
 

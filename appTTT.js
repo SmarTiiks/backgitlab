@@ -53,7 +53,7 @@ function doAll(app){
         Data.save()
         .then(result => {
             console.log('Grid created');
-            res.redirect('http://localhost:3000/TicTacToe');
+            res.redirect(process.env.FRONTEND_URL +'TicTacToe');
         }).catch(err => {
             console.log(err);
         });
@@ -82,7 +82,7 @@ function doAll(app){
                     // grid: newGrid
             }).then(result => {
                 console.log('Grid updated');
-                res.redirect('http://localhost:3000/TicTacToe');
+                res.redirect(process.env.FRONTEND_URL +'TicTacToe');
             }).catch(err => {
                 console.log(err);
             });       
@@ -98,7 +98,7 @@ function doAll(app){
                 ],
             }).then(result => {
                 console.log('Grid updated');
-                res.redirect('http://localhost:3000/TicTacToe');
+                res.redirect(process.env.FRONTEND_URL +'TicTacToe');
             }).catch(err => {
                 console.log(err);
             });       
@@ -121,7 +121,7 @@ function doAll(app){
                     console.log(err);
                 });       
             }
-            res.redirect('http://localhost:3000/TicTacToe')
+            res.redirect(process.env.FRONTEND_URL + 'TicTacToe')
         }).catch(err => {
             console.log(err);
         });       
@@ -140,7 +140,7 @@ function doAll(app){
                     }
                 }).then(result => {
                     console.log('Score updated');
-                    res.redirect('http://localhost:3000/TicTacToe');
+                    res.redirect(process.env.FRONTEND_URL + 'TicTacToe');
                 }).catch(err => {
                     console.log(err);
                 });       
@@ -153,7 +153,7 @@ function doAll(app){
                     }
                 }).then(result => {
                     console.log('Score updated');
-                    res.redirect('http://localhost:3000/TicTacToe');
+                    res.redirect(process.env.FRONTEND_URL + 'TicTacToe');
                 }).catch(err => {
                     console.log(err);
                 });       
