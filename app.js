@@ -107,6 +107,7 @@ app.get('/blog/:id', function(req, res) {
         }
     ).catch(err => {
         console.log(err);
+        res.status(404).json("Not found");
     });
 });
 
@@ -180,23 +181,23 @@ app.post("/submit-post", upload.single('image'), function(req, res) {
         // sous_titre: sout_titre,
         // auteur: auteur,
         description: description,
-        image: (req.file.filename),
+        image: (req.file ? req.file.filename : ""),
         date: req.body.date
     });
-    if(!req.file) {
-        res.status(400).json("No file uploaded");
-    }
-    else{
+    // if(!req.file) {
+    //     res.status(400).json("No file uploaded");
+    // }
+    // else{
         Data.save()
             .then(item => {
                 console.log("post saved to database");
-                res.json({id: item._id})
+                res.status(201).json({id: item._id})
             })
             .catch(err => {
                 console.log(err);
                 res.status(400).send("unable to save to database");
             });
-    }
+    // }
 });
 
 app.put("/edit/:id", function(req, res) {
@@ -250,9 +251,6 @@ app.delete("/deletePost/:id", function(req, res) {
     });
 });
 
-const tstpage = require('./test');
-tstpage.tstpage(app);
-console.log(tstpage.toto);
 
 // user part
 const appUser = require('./appUser');
@@ -268,3 +266,5 @@ TTT.doAll(app);
 var server = app.listen(5000, function(req, res) {
     console.log('Listening on %s on port %d', server.address.address, server.address().port);
 });
+
+module.exports = app;
